@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IOS switch</title>
+  <script type="text/javascript">
+    function customQuery (a) {
+      let list = a.split(" ")
+      list[0] = list[0].substr(1,list[0].length-1)
+      list[1] = list[1].substr(1,list[1].length-1)
+      if(!document.getElementsByClassName(list[0])){
+        console.log('err')
+        return null
+      }else {
+        let parentList = document.getElementsByClassName(list[0])
+        for(let item of parentList){
+          for(let issue of item.children){
+            if(issue == list[1]){
+              console.log('find')
+            }else{
+              console.log('null')
+            }
+          }
+
+          
+        }
+      }
+
+    }
+    customQuery('.ios_switch .switch_input')
+  </script>
+  <style type="text/css">
+    .switch_input{
+      width: 50px;
+      height: 32px;
+      position: relative;
+      border: 1px solid #dfdfdf;
+      background-color: white;
+      border-radius: 30px; 
+      -webkit-appearance: none;
+    }
+    .switch_input::before{
+      content: '';
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      background-color: white;
+    }
+    .switch_input:checked{
+      background-color: #4cdb68;
+    }
+    .switch_input:checked::before{
+      left: 19px;
+    }
+    .switch_input:checked{
+      transition: background-color 0.5s;
+    }
+    .switch_input:checked::before{
+      transition: left 0.5s;
+    }
+    .switch_input{
+      transition: background-color 0.5s;
+    }
+    .switch_input::before{
+      transition: left 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div id="ios_switch">
+      <input class="switch_input" type="checkbox">
+  </div>
+  <div id="ios_switch">
+    <input class="switch_input" type="checkbox">
+</div>
+<div class = "ios_switch">
+  <input class="switch_input" type="checkbox">
+</div>
+</body>
+</html>
